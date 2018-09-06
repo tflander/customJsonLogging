@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class todd.spike.SlfSpike</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class todd.spike.SlfSpike</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/todd.spike.html">todd.spike</a> &gt; SlfSpike</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.043s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">simpleWithCustomMdc</td>
+<td class="success">0.037s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">stacktrace</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>{
+  &quot;traceId&quot; : &quot;traceId1234&quot;,
+  &quot;instance&quot; : &quot;Test worker&quot;,
+  &quot;level&quot; : &quot;INFO&quot;,
+  &quot;logger&quot; : &quot;todd.spike.SlfSpike&quot;,
+  &quot;eventType&quot; : &quot;event&quot;,
+  &quot;message&quot; : &quot;foo&quot;,
+  &quot;threadId&quot; : 11,
+  &quot;firstName&quot; : &quot;Dorothy&quot;,
+  &quot;environment&quot; : &quot;local dev&quot;,
+  &quot;stepName&quot; : &quot;step&quot;,
+  &quot;host&quot; : null,
+  &quot;action&quot; : &quot;action&quot;,
+  &quot;vin&quot; : &quot;vin1234&quot;,
+  &quot;applicationId&quot; : &quot;appId&quot;
+}
+{
+  &quot;traceId&quot; : &quot;traceId1234&quot;,
+  &quot;instance&quot; : &quot;Test worker&quot;,
+  &quot;level&quot; : &quot;INFO&quot;,
+  &quot;logger&quot; : &quot;todd.spike.SlfSpike&quot;,
+  &quot;thrown&quot; : {
+    &quot;fileName&quot; : &quot;FakeService.java&quot;,
+    &quot;name&quot; : &quot;java.lang.IllegalStateException&quot;,
+    &quot;methodName&quot; : &quot;doIt&quot;,
+    &quot;thrown&quot; : {
+      &quot;fileName&quot; : &quot;FakeService.java&quot;,
+      &quot;name&quot; : &quot;java.lang.Exception&quot;,
+      &quot;methodName&quot; : &quot;doTheThing&quot;,
+      &quot;className&quot; : &quot;todd.spike.FakeService&quot;,
+      &quot;message&quot; : &quot;error here&quot;,
+      &quot;lineNumber&quot; : 13
+    },
+    &quot;className&quot; : &quot;todd.spike.FakeService&quot;,
+    &quot;message&quot; : &quot;Whoops&quot;,
+    &quot;lineNumber&quot; : 8
+  },
+  &quot;eventType&quot; : &quot;event&quot;,
+  &quot;message&quot; : &quot;failed&quot;,
+  &quot;threadId&quot; : 11,
+  &quot;firstName&quot; : &quot;Dorothy&quot;,
+  &quot;environment&quot; : &quot;local dev&quot;,
+  &quot;stepName&quot; : &quot;step&quot;,
+  &quot;host&quot; : null,
+  &quot;action&quot; : &quot;action&quot;,
+  &quot;vin&quot; : &quot;vin1234&quot;,
+  &quot;stackTrace&quot; : [ &quot;FakeService.java:todd.spike.FakeService:doIt:8&quot;, &quot;SlfSpike.java:todd.spike.SlfSpike:stacktrace:49&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke0:-2&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke:62&quot;, &quot;DelegatingMethodAccessorImpl.java:sun.reflect.DelegatingMethodAccessorImpl:invoke:43&quot;, &quot;Method.java:java.lang.reflect.Method:invoke:498&quot;, &quot;FrameworkMethod.java:org.junit.runners.model.FrameworkMethod$1:runReflectiveCall:50&quot;, &quot;ReflectiveCallable.java:org.junit.internal.runners.model.ReflectiveCallable:run:12&quot;, &quot;FrameworkMethod.java:org.junit.runners.model.FrameworkMethod:invokeExplosively:47&quot;, &quot;InvokeMethod.java:org.junit.internal.runners.statements.InvokeMethod:evaluate:17&quot;, &quot;RunBefores.java:org.junit.internal.runners.statements.RunBefores:evaluate:26&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner:runLeaf:325&quot;, &quot;BlockJUnit4ClassRunner.java:org.junit.runners.BlockJUnit4ClassRunner:runChild:78&quot;, &quot;BlockJUnit4ClassRunner.java:org.junit.runners.BlockJUnit4ClassRunner:runChild:57&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner$3:run:290&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner$1:schedule:71&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner:runChildren:288&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner:access$000:58&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner$2:evaluate:268&quot;, &quot;ParentRunner.java:org.junit.runners.ParentRunner:run:363&quot;, &quot;JUnitTestClassExecutor.java:org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor:runTestClass:106&quot;, &quot;JUnitTestClassExecutor.java:org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor:execute:58&quot;, &quot;JUnitTestClassExecutor.java:org.gradle.api.internal.tasks.testing.junit.JUnitTestClassExecutor:execute:38&quot;, &quot;AbstractJUnitTestClassProcessor.java:org.gradle.api.internal.tasks.testing.junit.AbstractJUnitTestClassProcessor:processTestClass:66&quot;, &quot;SuiteTestClassProcessor.java:org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor:processTestClass:51&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke0:-2&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke:62&quot;, &quot;DelegatingMethodAccessorImpl.java:sun.reflect.DelegatingMethodAccessorImpl:invoke:43&quot;, &quot;Method.java:java.lang.reflect.Method:invoke:498&quot;, &quot;ReflectionDispatch.java:org.gradle.internal.dispatch.ReflectionDispatch:dispatch:35&quot;, &quot;ReflectionDispatch.java:org.gradle.internal.dispatch.ReflectionDispatch:dispatch:24&quot;, &quot;ContextClassLoaderDispatch.java:org.gradle.internal.dispatch.ContextClassLoaderDispatch:dispatch:32&quot;, &quot;ProxyDispatchAdapter.java:org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler:invoke:93&quot;, &quot;null:com.sun.proxy.$Proxy1:processTestClass:-1&quot;, &quot;TestWorker.java:org.gradle.api.internal.tasks.testing.worker.TestWorker:processTestClass:109&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke0:-2&quot;, &quot;NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke:62&quot;, &quot;DelegatingMethodAccessorImpl.java:sun.reflect.DelegatingMethodAccessorImpl:invoke:43&quot;, &quot;Method.java:java.lang.reflect.Method:invoke:498&quot;, &quot;ReflectionDispatch.java:org.gradle.internal.dispatch.ReflectionDispatch:dispatch:35&quot;, &quot;ReflectionDispatch.java:org.gradle.internal.dispatch.ReflectionDispatch:dispatch:24&quot;, &quot;MessageHubBackedObjectConnection.java:org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper:dispatch:155&quot;, &quot;MessageHubBackedObjectConnection.java:org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper:dispatch:137&quot;, &quot;MessageHub.java:org.gradle.internal.remote.internal.hub.MessageHub$Handler:run:404&quot;, &quot;ExecutorPolicy.java:org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures:onExecute:63&quot;, &quot;ManagedExecutorImpl.java:org.gradle.internal.concurrent.ManagedExecutorImpl$1:run:46&quot;, &quot;ThreadPoolExecutor.java:java.util.concurrent.ThreadPoolExecutor:runWorker:1149&quot;, &quot;ThreadPoolExecutor.java:java.util.concurrent.ThreadPoolExecutor$Worker:run:624&quot;, &quot;ThreadFactoryImpl.java:org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable:run:55&quot;, &quot;Thread.java:java.lang.Thread:run:748&quot; ],
+  &quot;applicationId&quot; : &quot;appId&quot;
+}
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.8</a> at Sep 5, 2018 1:39:15 PM</p>
+</div>
+</div>
+</body>
+</html>

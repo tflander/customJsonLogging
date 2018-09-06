@@ -1,0 +1,34 @@
+{
+  "traceId" : "traceId1234",
+  "instance" : "main",
+  "level" : "INFO",
+  "logger" : "todd.spike.SlfSpike",
+  "thrown" : {
+    "fileName" : "FakeService.java",
+    "name" : "java.lang.IllegalStateException",
+    "methodName" : "doIt",
+    "thrown" : {
+      "fileName" : "FakeService.java",
+      "name" : "java.lang.Exception",
+      "methodName" : "doTheThing",
+      "className" : "todd.spike.FakeService",
+      "message" : "error here",
+      "lineNumber" : 13
+    },
+    "className" : "todd.spike.FakeService",
+    "message" : "Whoops",
+    "lineNumber" : 8
+  },
+  "eventType" : "event",
+  "message" : "failed",
+  "threadId" : 1,
+  "firstName" : "Dorothy",
+  "environment" : "local dev",
+  "stepName" : "step",
+  "host" : null,
+  "action" : "action",
+  "vin" : "vin1234",
+  "stackTrace" : [ "FakeService.java:todd.spike.FakeService:doIt:8", "SlfSpike.java:todd.spike.SlfSpike:stacktrace:49", "NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke0:-2", "NativeMethodAccessorImpl.java:sun.reflect.NativeMethodAccessorImpl:invoke:62", "DelegatingMethodAccessorImpl.java:sun.reflect.DelegatingMethodAccessorImpl:invoke:43", "Method.java:java.lang.reflect.Method:invoke:498", "FrameworkMethod.java:org.junit.runners.model.FrameworkMethod$1:runReflectiveCall:50", "ReflectiveCallable.java:org.junit.internal.runners.model.ReflectiveCallable:run:12", "FrameworkMethod.java:org.junit.runners.model.FrameworkMethod:invokeExplosively:47", "InvokeMethod.java:org.junit.internal.runners.statements.InvokeMethod:evaluate:17", "RunBefores.java:org.junit.internal.runners.statements.RunBefores:evaluate:26", "ParentRunner.java:org.junit.runners.ParentRunner:runLeaf:325", "BlockJUnit4ClassRunner.java:org.junit.runners.BlockJUnit4ClassRunner:runChild:78", "BlockJUnit4ClassRunner.java:org.junit.runners.BlockJUnit4ClassRunner:runChild:57", "ParentRunner.java:org.junit.runners.ParentRunner$3:run:290", "ParentRunner.java:org.junit.runners.ParentRunner$1:schedule:71", "ParentRunner.java:org.junit.runners.ParentRunner:runChildren:288", "ParentRunner.java:org.junit.runners.ParentRunner:access$000:58", "ParentRunner.java:org.junit.runners.ParentRunner$2:evaluate:268", "ParentRunner.java:org.junit.runners.ParentRunner:run:363", "Suite.java:org.junit.runners.Suite:runChild:128", "Suite.java:org.junit.runners.Suite:runChild:27", "ParentRunner.java:org.junit.runners.ParentRunner$3:run:290", "ParentRunner.java:org.junit.runners.ParentRunner$1:schedule:71", "ParentRunner.java:org.junit.runners.ParentRunner:runChildren:288", "ParentRunner.java:org.junit.runners.ParentRunner:access$000:58", "ParentRunner.java:org.junit.runners.ParentRunner$2:evaluate:268", "ParentRunner.java:org.junit.runners.ParentRunner:run:363", "JUnitCore.java:org.junit.runner.JUnitCore:run:137", "JUnit4IdeaTestRunner.java:com.intellij.junit4.JUnit4IdeaTestRunner:startRunnerWithArgs:68", "IdeaTestRunner.java:com.intellij.rt.execution.junit.IdeaTestRunner$Repeater:startRunnerWithArgs:47", "JUnitStarter.java:com.intellij.rt.execution.junit.JUnitStarter:prepareStreamsAndStart:242", "JUnitStarter.java:com.intellij.rt.execution.junit.JUnitStarter:main:70" ],
+  "applicationId" : "appId"
+}
+
