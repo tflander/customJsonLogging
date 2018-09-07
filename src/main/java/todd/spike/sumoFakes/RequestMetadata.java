@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.spike.sumoFakes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

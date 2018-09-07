@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.spike.sumoFakes;
 
 public class FakeService {
     public static void doIt() {
