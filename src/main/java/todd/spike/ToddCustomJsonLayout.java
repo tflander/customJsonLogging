@@ -14,10 +14,16 @@ import java.util.Map;
 public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
 
     private final String environment;
+    private ConciseStackTrace conciseStackTrace;
 
     public ToddCustomJsonLayout(String environment, boolean pretty) {
         super(pretty);
         this.environment = environment;
+        conciseStackTrace = new ConciseStackTrace();
+    }
+
+    public void setConciseStackTraceForTesting(ConciseStackTrace conciseStackTrace) {
+        this.conciseStackTrace = conciseStackTrace;
     }
 
     @Override
@@ -35,16 +41,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
     @Override
     protected Map<String, Object> logStackTrace(Throwable throwable) {
         Map<String, Object> kvMap = new HashMap<>();
-        List<String> stackTraceDescr = new ArrayList<>();
-        StackTraceElement[] stackTrace = throwable.getStackTrace();
-        for (StackTraceElement element : stackTrace) {
-            String className = element.getClassName();
-            String fileName = element.getFileName();
-            int lineNumber = element.getLineNumber();
-            String methodName = element.getMethodName();
-            stackTraceDescr.add(fileName + ":" + className + ":" + methodName + ":" + lineNumber);
-        }
-        kvMap.put("stackTrace", stackTraceDescr);
+        kvMap.put("stackTrace", conciseStackTrace.logStackTrace(throwable));
         return kvMap;
     }
 

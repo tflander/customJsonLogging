@@ -5,16 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.impl.MutableLogEvent;
 import org.apache.logging.log4j.message.SimpleMessage;
-import org.apache.logging.log4j.util.SortedArrayStringMap;
-import org.apache.logging.log4j.util.StringMap;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.when;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ToddCustomJsonLayoutTest {
 
     private static final String TEST_ENVIRONMENT = "Test Environment";
@@ -28,9 +33,14 @@ public class ToddCustomJsonLayoutTest {
 
     private MutableLogEvent event;
 
+    @Mock
+    private ConciseStackTrace conciseStackTrace;
+
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         event = new MutableLogEvent();
+        prettyJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
+        conciseJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
     }
 
     @Test
@@ -54,37 +64,39 @@ public class ToddCustomJsonLayoutTest {
 
     }
 
-    // TODO: refactor move
     @Test
     public void logsStackTrace() throws IOException {
-        event.setThrown(new Exception("Whoops"));
+
+        Exception exception = new Exception("Whoops");
+        event.setThrown(exception);
+        List<String> stackTrace = Arrays.asList("mock trace line one", "mock trace line two");
+        when(conciseStackTrace.logStackTrace(exception)).thenReturn(stackTrace);
         String logString = conciseJsonLayout.toSerializable(event);
         JsonNode keyNode = getKeyNode(logString, "stackTrace");
 
-        int expectedStackSize = 32;
-        assertThat(keyNode.size()).isEqualTo(expectedStackSize);
-        assertThat(keyNode.elements().next().asText()).isEqualTo("ToddCustomJsonLayoutTest.java:todd.spike.ToddCustomJsonLayoutTest:logsStackTrace:60");
+        assertThat(keyNode.size()).isEqualTo(stackTrace.size());
+        assertThat(keyNode.elements().next().asText()).isEqualTo(stackTrace.get(0));
     }
 
     // TODO: refactor move
     @Test
     public void logsException() throws IOException {
         event.setThrown(new Exception("Whoops"));
-        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 72");
+        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 84");
     }
 
     // TODO: refactor move
     @Test
     public void logsFirstCause() throws IOException {
         event.setThrown(new Exception("Whoops", new Exception("First Cause")));
-        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 79");
+        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 91");
     }
 
     // TODO: refactor move
     @Test
     public void logsSecondCause() throws IOException {
         event.setThrown(new Exception("Whoops", new Exception("First Cause", new Exception("Second Cause"))));
-        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 86");
+        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 98");
     }
 
     private void logsKeyAndStringValue(String key, String expectedValue) throws IOException {
