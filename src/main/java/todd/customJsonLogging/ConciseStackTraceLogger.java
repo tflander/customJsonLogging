@@ -3,7 +3,7 @@ package todd.customJsonLogging;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ConciseStackTrace {
+public class ConciseStackTraceLogger {
 
     public List<String> logStackTrace(Throwable throwable) {
         List<String> stackTraceDescr = new ArrayList<>();

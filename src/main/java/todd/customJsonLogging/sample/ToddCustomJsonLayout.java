@@ -1,9 +1,12 @@
-package todd.customJsonLogging;
+package todd.customJsonLogging.sample;
 
 import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.config.plugins.Plugin;
 import org.apache.logging.log4j.core.config.plugins.PluginAttribute;
 import org.apache.logging.log4j.core.config.plugins.PluginFactory;
+import todd.customJsonLogging.AbstractCustomJsonLayout;
+import todd.customJsonLogging.ConciseStackTraceLogger;
+import todd.customJsonLogging.DefaultExceptionLogger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,13 +15,13 @@ import java.util.Map;
 public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
 
     private final String environment;
-    private ConciseStackTrace conciseStackTrace;
+    private ConciseStackTraceLogger conciseStackTraceLogger;
     private DefaultExceptionLogger defaultExceptionLogger;
 
     public ToddCustomJsonLayout(String environment, boolean pretty) {
         super(pretty);
         this.environment = environment;
-        conciseStackTrace = new ConciseStackTrace();
+        conciseStackTraceLogger = new ConciseStackTraceLogger();
         defaultExceptionLogger = new DefaultExceptionLogger();
     }
 
@@ -37,7 +40,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
     @Override
     protected Map<String, Object> logStackTrace(Throwable throwable) {
         Map<String, Object> kvMap = new HashMap<>();
-        kvMap.put("stackTrace", conciseStackTrace.logStackTrace(throwable));
+        kvMap.put("stackTrace", conciseStackTraceLogger.logStackTrace(throwable));
         return kvMap;
     }
 
@@ -55,8 +58,8 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
         return new ToddCustomJsonLayout(environment, pretty);
     }
 
-    public void setConciseStackTraceForTesting(ConciseStackTrace conciseStackTrace) {
-        this.conciseStackTrace = conciseStackTrace;
+    public void setConciseStackTraceForTesting(ConciseStackTraceLogger conciseStackTraceLogger) {
+        this.conciseStackTraceLogger = conciseStackTraceLogger;
     }
 
     public void setExceptionLoggerForTesting(DefaultExceptionLogger defaultExceptionLogger) {

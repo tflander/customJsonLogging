@@ -1,4 +1,4 @@
-package todd.customJsonLogging;
+package todd.customJsonLogging.sample;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +11,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import todd.customJsonLogging.ConciseStackTraceLogger;
+import todd.customJsonLogging.DefaultExceptionLogger;
+import todd.customJsonLogging.demo.LoggingDemo;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -30,13 +33,13 @@ public class ToddCustomJsonLayoutTest {
     private static final String THREAD_NAME = "Thread Name";
     private static final String MESSAGE = "Message";
 
-    private final ToddCustomJsonLayout prettyJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, true);
-    private final ToddCustomJsonLayout conciseJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, false);
+    private final LoggingDemo.ToddCustomJsonLayout prettyJsonLayout = LoggingDemo.ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, true);
+    private final LoggingDemo.ToddCustomJsonLayout conciseJsonLayout = LoggingDemo.ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, false);
 
     private MutableLogEvent event;
 
     @Mock
-    private ConciseStackTrace conciseStackTrace;
+    private ConciseStackTraceLogger conciseStackTraceLogger;
 
     @Mock
     private DefaultExceptionLogger defaultExceptionLogger;
@@ -44,9 +47,9 @@ public class ToddCustomJsonLayoutTest {
     @Before
     public void setUp() {
         event = new MutableLogEvent();
-        prettyJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
+        prettyJsonLayout.setConciseStackTraceForTesting(conciseStackTraceLogger);
         prettyJsonLayout.setExceptionLoggerForTesting(defaultExceptionLogger);
-        conciseJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
+        conciseJsonLayout.setConciseStackTraceForTesting(conciseStackTraceLogger);
         conciseJsonLayout.setExceptionLoggerForTesting(defaultExceptionLogger);
     }
 
@@ -76,7 +79,7 @@ public class ToddCustomJsonLayoutTest {
         Exception exception = new Exception("Whoops");
         event.setThrown(exception);
         List<String> stackTrace = Arrays.asList("mock trace line one", "mock trace line two");
-        when(conciseStackTrace.logStackTrace(exception)).thenReturn(stackTrace);
+        when(conciseStackTraceLogger.logStackTrace(exception)).thenReturn(stackTrace);
         String logString = conciseJsonLayout.toSerializable(event);
         JsonNode keyNode = getKeyNode(logString, "stackTrace");
 
@@ -104,12 +107,12 @@ public class ToddCustomJsonLayoutTest {
         logsKeyAndLongValueForLayout(key, expectedValue, conciseJsonLayout);
     }
 
-    private void logsKeyAndStringValueForLayout(String key, String expectedValue, ToddCustomJsonLayout jsonLayout) throws IOException {
+    private void logsKeyAndStringValueForLayout(String key, String expectedValue, LoggingDemo.ToddCustomJsonLayout jsonLayout) throws IOException {
         String jsonString = jsonLayout.toSerializable(event);
         verifyJsonContainsString(jsonString, key, expectedValue);
     }
 
-    private void logsKeyAndLongValueForLayout(String key, long expectedValue, ToddCustomJsonLayout layout) throws IOException {
+    private void logsKeyAndLongValueForLayout(String key, long expectedValue, LoggingDemo.ToddCustomJsonLayout layout) throws IOException {
         String jsonString = layout.toSerializable(event);
         verifyJsonContainsLong(jsonString, key, expectedValue);
     }
