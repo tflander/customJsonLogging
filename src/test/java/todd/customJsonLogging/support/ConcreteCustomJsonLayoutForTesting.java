@@ -1,11 +1,12 @@
-package todd.customJsonLogging;
+package todd.customJsonLogging.support;
 
 import org.apache.logging.log4j.core.LogEvent;
+import todd.customJsonLogging.AbstractCustomJsonLayout;
 
 import java.util.HashMap;
 import java.util.Map;
 
-class ConcreteCustomJsonLayoutForTesting extends AbstractCustomJsonLayout {
+public class ConcreteCustomJsonLayoutForTesting extends AbstractCustomJsonLayout {
 
     @SuppressWarnings("unused")
     public ConcreteCustomJsonLayoutForTesting() {

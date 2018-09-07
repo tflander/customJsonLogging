@@ -1,11 +1,9 @@
 package todd.customJsonLogging.sample;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.impl.MutableLogEvent;
 import org.apache.logging.log4j.message.SimpleMessage;
-import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,6 +21,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
+import static todd.customJsonLogging.support.JsonValidationUtils.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ToddCustomJsonLayoutTest {
@@ -98,42 +97,13 @@ public class ToddCustomJsonLayoutTest {
     }
 
     private void logsKeyAndStringValue(String key, String expectedValue) throws IOException {
-        logsKeyAndStringValueForLayout(key, expectedValue, prettyJsonLayout);
-        logsKeyAndStringValueForLayout(key, expectedValue, conciseJsonLayout);
+        logsKeyAndStringValueForLayout(key, expectedValue, prettyJsonLayout, event);
+        logsKeyAndStringValueForLayout(key, expectedValue, conciseJsonLayout, event);
     }
 
     private void logsKeyAndLongValue(String key, long expectedValue) throws IOException {
-        logsKeyAndLongValueForLayout(key, expectedValue, prettyJsonLayout);
-        logsKeyAndLongValueForLayout(key, expectedValue, conciseJsonLayout);
+        logsKeyAndLongValueForLayout(key, expectedValue, prettyJsonLayout, event);
+        logsKeyAndLongValueForLayout(key, expectedValue, conciseJsonLayout, event);
     }
 
-    private void logsKeyAndStringValueForLayout(String key, String expectedValue, LoggingDemo.ToddCustomJsonLayout jsonLayout) throws IOException {
-        String jsonString = jsonLayout.toSerializable(event);
-        verifyJsonContainsString(jsonString, key, expectedValue);
-    }
-
-    private void logsKeyAndLongValueForLayout(String key, long expectedValue, LoggingDemo.ToddCustomJsonLayout layout) throws IOException {
-        String jsonString = layout.toSerializable(event);
-        verifyJsonContainsLong(jsonString, key, expectedValue);
-    }
-
-    private void verifyJsonContainsLong(String logString, String key, long expectedValue) throws IOException {
-        JsonNode keyNode = getKeyNode(logString, key);
-        assertThat(keyNode.asLong()).isEqualTo(expectedValue);
-    }
-
-    private void verifyJsonContainsString(String logString, String key, String expectedValue) throws IOException {
-        JsonNode keyNode = getKeyNode(logString, key);
-        assertThat(keyNode.asText()).isEqualTo(expectedValue);
-    }
-
-    private JsonNode getKeyNode(String logString, String key) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode jsonNode = mapper.readTree(logString);
-        JsonNode keyNode = jsonNode.get(key);
-        if (keyNode == null) {
-            Assertions.fail("key " + key + " not found in " + logString);
-        }
-        return keyNode;
-    }
 }

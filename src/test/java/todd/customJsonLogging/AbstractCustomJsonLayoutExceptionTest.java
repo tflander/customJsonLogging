@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import todd.customJsonLogging.support.ConcreteCustomJsonLayoutForTesting;
 
 import java.util.Map;
 
