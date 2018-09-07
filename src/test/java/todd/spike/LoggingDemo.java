@@ -1,17 +1,15 @@
 package todd.spike;
 
-import org.junit.Before;
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 import java.lang.reflect.Field;
 
-public class SlfSpike {
+public class LoggingDemo {
 
-    Logger log = LoggerFactory.getLogger(SlfSpike.class);
-    RequestMetadata metadata = RequestMetadata.builder()
+    static Logger log = LoggerFactory.getLogger(LoggingDemo.class);
+    static RequestMetadata metadata = RequestMetadata.builder()
             .action("action")
             .applicationId("appId")
             .eventType("event")
@@ -20,27 +18,21 @@ public class SlfSpike {
             .vin("vin1234")
             .build();
 
-    @Before
-    public void setUp() throws Exception {
+    public static void main(String[] args) {
         addRequestMetadataToMdc();
-    }
 
-    @Test
-    public void simpleWithCustomMdc() {
         MDC.put("firstName", "Dorothy");
         log.info("foo");
-    }
 
-    @Test
-    public void stacktrace() {
         try {
             FakeService.doIt();
         } catch (Exception e) {
             log.info("failed", e);
         }
+
     }
 
-    private void addRequestMetadataToMdc() {
+    private static void addRequestMetadataToMdc() {
         Field[] fields = RequestMetadata.class.getDeclaredFields();
         for (Field field : fields) {
             try {

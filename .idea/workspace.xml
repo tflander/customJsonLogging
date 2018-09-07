@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73947120-c00e-406e-8e7e-d920d59e80a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/todd/spike/AbstractCustomJsonLayoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/todd/spike/AbstractCustomJsonLayoutTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exception.log" beforeDir="false" afterPath="$PROJECT_DIR$/exception.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/todd/spike/SlfSpike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/todd/spike/LoggingDemo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -49,14 +49,14 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="gradle" value="1" />
-          <entry key="java" value="30" />
+          <entry key="java" value="32" />
           <entry key="properties" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="32" />
           <entry key="Properties" value="3" />
         </counts>
       </usages-collector>
@@ -64,14 +64,14 @@
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="2965" />
+          <entry key="java" value="3034" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="2965" />
+          <entry key="JAVA" value="3034" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Properties" value="5" />
         </counts>
@@ -81,10 +81,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/log4j2.properties">
+        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="229">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/LoggingDemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -92,74 +101,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
+            <state relative-caret-position="357">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/AbstractCustomJsonLayoutExceptionTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="24" column="38" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ConcreteCustomJsonLayoutForTesting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="34" column="50" selection-start-line="34" selection-start-column="50" selection-end-line="34" selection-end-column="50" />
-              <folding>
-                <element signature="e#223#224#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
-                <element signature="e#331#332#0" expanded="true" />
-                <element signature="e#354#355#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="65" column="149" selection-start-line="65" selection-start-column="149" selection-end-line="65" selection-end-column="149" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/AbstractCustomJsonLayoutTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="63" column="43" selection-start-line="63" selection-start-column="43" selection-end-line="63" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/SlfSpike.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="466">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/AbstractCustomJsonLayout.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -484,7 +430,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/todd/spike/FakeService.java" />
-        <option value="$PROJECT_DIR$/src/test/java/todd/spike/SlfSpike.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/src/main/java/todd/spike/MyCustomJsonLayout.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/MyCustomJsonLayoutTest.java" />
@@ -497,6 +442,8 @@
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/ConcreteCustomJsonLayoutForTesting.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/AbstractCustomJsonLayoutTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/todd/spike/SlfSpike.java" />
+        <option value="$PROJECT_DIR$/src/test/java/todd/spike/LoggingDemo.java" />
       </list>
     </option>
   </component>
@@ -583,7 +530,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536334909316" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536335195772" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -620,30 +567,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in loggingSpike_test">
+  <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AbstractCustomJsonLayoutExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoggingDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="todd.spike.LoggingDemo" />
       <module name="loggingSpike_test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="todd.spike.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="todd.spike" />
-      <option name="MAIN_CLASS_NAME" value="todd.spike.AbstractCustomJsonLayoutExceptionTest" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -731,18 +677,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.All in loggingSpike_test" />
-      <item itemvalue="JUnit.AbstractCustomJsonLayoutExceptionTest" />
       <item itemvalue="JUnit.AbstractCustomJsonLayoutTest" />
       <item itemvalue="JUnit.AbstractCustomJsonLayoutTest.logsStackTrace" />
       <item itemvalue="JUnit.ToddCustomJsonLayoutTest.conciseLogsEndInALineSeparator" />
+      <item itemvalue="Application.LoggingDemo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LoggingDemo" />
         <item itemvalue="JUnit.All in loggingSpike_test" />
         <item itemvalue="JUnit.AbstractCustomJsonLayoutTest" />
         <item itemvalue="JUnit.ToddCustomJsonLayoutTest.conciseLogsEndInALineSeparator" />
         <item itemvalue="JUnit.AbstractCustomJsonLayoutTest.logsStackTrace" />
-        <item itemvalue="JUnit.AbstractCustomJsonLayoutExceptionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -760,9 +706,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AbstractCustomJsonLayoutTest - 2018.09.07 at 11h 31m 37s.xml">
-      <configuration name="AbstractCustomJsonLayoutTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AbstractCustomJsonLayoutTest_logsStackTrace - 2018.09.07 at 11h 33m 50s.xml">
       <configuration name="AbstractCustomJsonLayoutTest.logsStackTrace" configurationId="JUnit" />
     </history-entry>
@@ -790,6 +733,9 @@
     <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 11h 41m 38s.xml">
       <configuration name="All in loggingSpike_test" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 11h 42m 02s.xml">
+      <configuration name="All in loggingSpike_test" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -804,7 +750,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -940,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/SlfSpike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="466">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/MyCustomJsonLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -961,16 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="68" column="34" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1016,8 +945,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="65" column="149" selection-start-line="65" selection-start-column="149" selection-end-line="65" selection-end-column="149" />
+        <state relative-caret-position="229">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/LoggingDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="24" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="24" />
         </state>
       </provider>
     </entry>
