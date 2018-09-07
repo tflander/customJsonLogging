@@ -29,7 +29,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         Map<String, Object> kvMap = addCustomPairsToKvMap(event);
         Throwable throwable = event.getThrown();
         if (throwable != null) {
-            logStackTrace(kvMap, throwable);
+            kvMap.putAll(logStackTrace(throwable));
             logExceptionRecursively(kvMap, throwable);
         }
 
@@ -72,17 +72,6 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         }
     }
 
-    private void logStackTrace(Map<String, Object> kvMap, Throwable throwable) {
-        List<String> stackTraceDescr = new ArrayList<>();
-        StackTraceElement[] stackTrace = throwable.getStackTrace();
-        for (StackTraceElement element : stackTrace) {
-            String className = element.getClassName();
-            String fileName = element.getFileName();
-            int lineNumber = element.getLineNumber();
-            String methodName = element.getMethodName();
-            stackTraceDescr.add(fileName + ":" + className + ":" + methodName + ":" + lineNumber);
-        }
-        kvMap.put("stackTrace", stackTraceDescr);
-    }
+    protected abstract Map<String, Object> logStackTrace(Throwable throwable);
 
 }

@@ -2,9 +2,10 @@ package todd.spike;
 
 import org.apache.logging.log4j.core.LogEvent;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
 
@@ -27,4 +28,19 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
         return kvMap;
     }
 
+    @Override
+    protected Map<String, Object> logStackTrace(Throwable throwable) {
+        Map<String, Object> kvMap = new HashMap<>();
+        List<String> stackTraceDescr = new ArrayList<>();
+        StackTraceElement[] stackTrace = throwable.getStackTrace();
+        for (StackTraceElement element : stackTrace) {
+            String className = element.getClassName();
+            String fileName = element.getFileName();
+            int lineNumber = element.getLineNumber();
+            String methodName = element.getMethodName();
+            stackTraceDescr.add(fileName + ":" + className + ":" + methodName + ":" + lineNumber);
+        }
+        kvMap.put("stackTrace", stackTraceDescr);
+        return kvMap;
+    }
 }
