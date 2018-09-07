@@ -17,7 +17,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
     private final boolean pretty;
     private ObjectMapper objectMapper;
 
-    protected AbstractCustomJsonLayout(boolean pretty) {
+    public AbstractCustomJsonLayout(boolean pretty) {
         super(Charset.forName("UTF-8"));
         this.pretty = pretty;
         objectMapper = new ObjectMapper();
@@ -30,7 +30,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         Throwable throwable = event.getThrown();
         if (throwable != null) {
             kvMap.putAll(logStackTrace(throwable));
-            logExceptionRecursively(kvMap, throwable);
+            kvMap.putAll(logExceptionRecursively(throwable));
         }
 
         kvMap.putAll(event.getContextData().toMap());
@@ -46,32 +46,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
     }
 
     protected abstract Map<String, Object> addCustomPairsToKvMap(LogEvent event);
-
-    private void logExceptionRecursively(Map<String, Object> kvMap, Throwable throwable) {
-        int level = 0;
-        String tag = "exception." + level + ".thrown";
-        while (throwable != null) {
-            StackTraceElement element = throwable.getStackTrace()[0];
-            String exception =
-                    throwable.getClass().getName() + ":"
-                            + throwable.getMessage() + " "
-                            + element.getFileName() + " "
-                            + element.getClassName() + ":"
-                            + element.getMethodName() + " line "
-                            + element.getLineNumber();
-
-            kvMap.put(tag, exception);
-            ++level;
-            tag = "exception." + level + ".cause";
-
-            if (throwable == throwable.getCause()) {
-                throwable = null;
-            } else {
-                throwable = throwable.getCause();
-            }
-        }
-    }
-
+    protected abstract Map<String, Object> logExceptionRecursively(Throwable throwable);
     protected abstract Map<String, Object> logStackTrace(Throwable throwable);
 
 }
