@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
 
@@ -25,14 +26,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
     @Override
     public String toSerializable(LogEvent event) {
 
-        Map<String, Object> kvMap = new HashMap<>();
-        kvMap.put("threadId", event.getThreadId());
-        kvMap.put("instance", event.getThreadName());
-        kvMap.put("level", event.getLevel().toString());
-        kvMap.put("message", event.getMessage().getFormattedMessage());
-        kvMap.put("logger", event.getLoggerName());
-
-        addCustomPairsToKvMap(kvMap);
+        Map<String, Object> kvMap = addCustomPairsToKvMap(event);
         Throwable throwable = event.getThrown();
         if (throwable != null) {
             logStackTrace(kvMap, throwable);
@@ -42,7 +36,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         kvMap.putAll(event.getContextData().toMap());
         try {
             if (!pretty) {
-                return objectMapper.writeValueAsString(kvMap); // + System.lineSeparator();
+                return objectMapper.writeValueAsString(kvMap) + System.lineSeparator();
             } else {
                 return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(kvMap) + System.lineSeparator();
             }
@@ -51,7 +45,7 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         }
     }
 
-    protected abstract void addCustomPairsToKvMap(Map<String, Object> kvMap);
+    protected abstract Map<String, Object> addCustomPairsToKvMap(LogEvent event);
 
     private void logExceptionRecursively(Map<String, Object> kvMap, Throwable throwable) {
         int level = 0;

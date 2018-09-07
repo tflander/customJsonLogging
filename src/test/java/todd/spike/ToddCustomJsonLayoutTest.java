@@ -69,7 +69,7 @@ public class ToddCustomJsonLayoutTest {
         String logString = conciseJsonLayout.toSerializable(event);
         JsonNode keyNode = getKeyNode(logString, "stackTrace");
 
-        int expectedStackSize = 24;
+        int expectedStackSize = 32;
         assertThat(keyNode.size()).isEqualTo(expectedStackSize);
         assertThat(keyNode.elements().next().asText()).isEqualTo("ToddCustomJsonLayoutTest.java:todd.spike.ToddCustomJsonLayoutTest:logsStackTrace:68");
     }
@@ -105,6 +105,12 @@ public class ToddCustomJsonLayoutTest {
         int lineCount = logString.split(System.lineSeparator()).length;
         assertThat(lineCount).isEqualTo(1);
 
+    }
+
+    @Test
+    public void conciseLogsEndInALineSeparator() {
+        String logEntry = conciseJsonLayout.toSerializable(event);
+        assertThat(logEntry).endsWith(System.lineSeparator());
     }
 
     private void logsKeyAndStringValue(String key, String expectedValue) throws IOException {

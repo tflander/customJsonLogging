@@ -66,7 +66,7 @@ public class MyCustomJsonLayoutTest {
         String logString = conciseJsonLayout.toSerializable(event);
         JsonNode keyNode = getKeyNode(logString, "stackTrace");
 
-        int expectedStackSize = 24;
+        int expectedStackSize = 32;
         assertThat(keyNode.size()).isEqualTo(expectedStackSize);
         assertThat(keyNode.elements().next().asText()).isEqualTo("MyCustomJsonLayoutTest.java:todd.spike.MyCustomJsonLayoutTest:logsStackTrace:65");
     }
