@@ -49,7 +49,6 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
         return defaultExceptionLogger.logException(throwable);
     }
 
-
     @PluginFactory
     public static ToddCustomJsonLayout createLayout(
             @PluginAttribute(value = "environment", defaultString = "unknown") String environment,

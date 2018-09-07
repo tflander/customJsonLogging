@@ -32,8 +32,8 @@ public class ToddCustomJsonLayoutTest {
     private static final String THREAD_NAME = "Thread Name";
     private static final String MESSAGE = "Message";
 
-    private final LoggingDemo.ToddCustomJsonLayout prettyJsonLayout = LoggingDemo.ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, true);
-    private final LoggingDemo.ToddCustomJsonLayout conciseJsonLayout = LoggingDemo.ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, false);
+    private final ToddCustomJsonLayout prettyJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, true);
+    private final ToddCustomJsonLayout conciseJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, false);
 
     private MutableLogEvent event;
 
