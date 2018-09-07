@@ -28,7 +28,7 @@ public class ToddCustomJsonLayoutTest {
 
     private static final String TEST_ENVIRONMENT = "Test Environment";
     private static final String LOGGER_NAME = "Test logger";
-    public static final int THREAD_ID = 1234;
+    private static final int THREAD_ID = 1234;
     private static final String THREAD_NAME = "Thread Name";
     private static final String MESSAGE = "Message";
 
