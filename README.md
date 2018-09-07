@@ -26,12 +26,12 @@ appender.myCustom.layout.pretty = false
 
 ## Demo
 
-- Run the application [LoggingDemo](src/main/java/todd/customLogging/demo/LoggingDemo.java).
+- Run the application [LoggingDemo](src/main/java/todd/customJsonLogging/demo/LoggingDemo.java).
 - Verify two JSON log entries.  One contains a stack trace.  View in a JSON formatter or log aggregator, or set pretty=true.
 
 ## Sample
 
-The demo program uses a sample custom JSON layout [ToddCustomJsonLayout](src/main/java/todd/customLogging/sample/ToddCustomJsonLayout.java).  You will probably want to make your own customized as you see fit.
+The demo program uses a sample custom JSON layout [ToddCustomJsonLayout](src/main/java/todd/customJsonLogging/sample/ToddCustomJsonLayout.java).  You will probably want to make your own customized as you see fit.
 
 ### Annotation Wiring
 There are two annotations that are required to configure this class as a logging layout:
