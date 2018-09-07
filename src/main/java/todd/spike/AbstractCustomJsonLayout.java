@@ -6,11 +6,7 @@ import org.apache.logging.log4j.core.LogEvent;
 import org.apache.logging.log4j.core.layout.AbstractStringLayout;
 
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 
 public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
 
@@ -26,11 +22,11 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
     @Override
     public String toSerializable(LogEvent event) {
 
-        Map<String, Object> kvMap = addCustomPairsToKvMap(event);
+        Map<String, Object> kvMap = mapLogEvent(event);
         Throwable throwable = event.getThrown();
         if (throwable != null) {
             kvMap.putAll(logStackTrace(throwable));
-            kvMap.putAll(logExceptionRecursively(throwable));
+            kvMap.putAll(logException(throwable));
         }
 
         kvMap.putAll(event.getContextData().toMap());
@@ -45,8 +41,8 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         }
     }
 
-    protected abstract Map<String, Object> addCustomPairsToKvMap(LogEvent event);
-    protected abstract Map<String, Object> logExceptionRecursively(Throwable throwable);
+    protected abstract Map<String, Object> mapLogEvent(LogEvent event);
+    protected abstract Map<String, Object> logException(Throwable throwable);
     protected abstract Map<String, Object> logStackTrace(Throwable throwable);
 
 }

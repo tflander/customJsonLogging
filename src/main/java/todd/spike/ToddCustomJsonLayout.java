@@ -21,7 +21,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
     }
 
     @Override
-    protected Map<String, Object> addCustomPairsToKvMap(LogEvent event) {
+    protected Map<String, Object> mapLogEvent(LogEvent event) {
         Map<String, Object> kvMap = new HashMap<>();
         kvMap.put("threadId", event.getThreadId());
         kvMap.put("instance", event.getThreadName());
@@ -49,7 +49,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
     }
 
     @Override
-    protected Map<String, Object> logExceptionRecursively(Throwable throwable) {
+    protected Map<String, Object> logException(Throwable throwable) {
         Map<String, Object> kvMap = new HashMap<>();
         int level = 0;
         String tag = "exception." + level + ".thrown";

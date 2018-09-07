@@ -15,16 +15,10 @@ import java.io.IOException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class ToddCustomJsonLayoutTest {
+public class AbstractCustomJsonLayoutTest {
 
-    private static final String TEST_ENVIRONMENT = "Test Environment";
-    private static final String LOGGER_NAME = "Test logger";
-    public static final int THREAD_ID = 1234;
-    private static final String THREAD_NAME = "Thread Name";
-    private static final String MESSAGE = "Message";
-
-    private ToddCustomJsonLayout prettyJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, true);
-    private ToddCustomJsonLayout conciseJsonLayout = ToddCustomJsonLayout.createLayout(TEST_ENVIRONMENT, false);
+    private ConcreteCustomJsonLayoutForTesting prettyJsonLayout = new ConcreteCustomJsonLayoutForTesting(true);
+    private ConcreteCustomJsonLayoutForTesting conciseJsonLayout = new ConcreteCustomJsonLayoutForTesting(false);
 
     private MutableLogEvent event;
 
@@ -33,60 +27,42 @@ public class ToddCustomJsonLayoutTest {
         event = new MutableLogEvent();
     }
 
-    // TODO: keep
     @Test
-    public void logsEnvironment() throws IOException {
-        logsKeyAndStringValue("environment", TEST_ENVIRONMENT);
+    public void logsMdcFields() throws IOException {
+        StringMap mdcMap = new SortedArrayStringMap();
+        mdcMap.putValue("foo", "bar");
+        event.setContextData(mdcMap);
+        logsKeyAndStringValue("foo", "bar");
     }
 
-    // TODO: keep
-    @Test
-    public void logsEventFields() throws IOException {
-        event.setLoggerName(LOGGER_NAME);
-        event.setLevel(Level.FATAL);
-        event.setThreadId(THREAD_ID);
-        event.setThreadName(THREAD_NAME);
-        event.setMessage(new SimpleMessage(MESSAGE));
-
-        logsKeyAndStringValue("logger", LOGGER_NAME);
-        logsKeyAndStringValue("level", Level.FATAL.toString());
-        logsKeyAndLongValue("threadId", THREAD_ID);
-        logsKeyAndStringValue("instance", THREAD_NAME);
-        logsKeyAndStringValue("message", MESSAGE);
-
-    }
-
-    // TODO: refactor move
     @Test
     public void logsStackTrace() throws IOException {
         event.setThrown(new Exception("Whoops"));
         String logString = conciseJsonLayout.toSerializable(event);
         JsonNode keyNode = getKeyNode(logString, "stackTrace");
 
-        int expectedStackSize = 32;
-        assertThat(keyNode.size()).isEqualTo(expectedStackSize);
-        assertThat(keyNode.elements().next().asText()).isEqualTo("ToddCustomJsonLayoutTest.java:todd.spike.ToddCustomJsonLayoutTest:logsStackTrace:67");
+        assertThat(keyNode.asText()).isEqualTo("dummy stack trace");
     }
 
-    // TODO: refactor move
     @Test
     public void logsException() throws IOException {
         event.setThrown(new Exception("Whoops"));
-        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 78");
+        logsKeyAndStringValue("exception", "dummy exception");
     }
 
-    // TODO: refactor move
     @Test
-    public void logsFirstCause() throws IOException {
-        event.setThrown(new Exception("Whoops", new Exception("First Cause")));
-        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 84");
+    public void prettyFormattingIsMultipleLinesSuitableForHumans() {
+        String logString = prettyJsonLayout.toSerializable(event);
+        int lineCount = logString.split(System.lineSeparator()).length;
+        assertThat(lineCount).isGreaterThan(1);
     }
 
-    // TODO: refactor move
     @Test
-    public void logsSecondCause() throws IOException {
-        event.setThrown(new Exception("Whoops", new Exception("First Cause", new Exception("Second Cause"))));
-        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 90");
+    public void conciseFormattingIsASingleLineSuitableForMachines() {
+        String logString = conciseJsonLayout.toSerializable(event);
+        int lineCount = logString.split(System.lineSeparator()).length;
+        assertThat(lineCount).isEqualTo(1);
+
     }
 
     @Test
@@ -105,12 +81,12 @@ public class ToddCustomJsonLayoutTest {
         logsKeyAndLongValueForLayout(key, expectedValue, conciseJsonLayout);
     }
 
-    private void logsKeyAndStringValueForLayout(String key, String expectedValue, ToddCustomJsonLayout jsonLayout) throws IOException {
+    private void logsKeyAndStringValueForLayout(String key, String expectedValue, ConcreteCustomJsonLayoutForTesting jsonLayout) throws IOException {
         String jsonString = jsonLayout.toSerializable(event);
         verifyJsonContainsString(jsonString, key, expectedValue);
     }
 
-    private void logsKeyAndLongValueForLayout(String key, long expectedValue, ToddCustomJsonLayout layout) throws IOException {
+    private void logsKeyAndLongValueForLayout(String key, long expectedValue, ConcreteCustomJsonLayoutForTesting layout) throws IOException {
         String jsonString = layout.toSerializable(event);
         verifyJsonContainsLong(jsonString, key, expectedValue);
     }
@@ -134,4 +110,6 @@ public class ToddCustomJsonLayoutTest {
         }
         return keyNode;
     }
+
 }
+
