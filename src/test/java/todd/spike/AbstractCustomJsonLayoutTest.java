@@ -62,7 +62,6 @@ public class AbstractCustomJsonLayoutTest {
         String logString = conciseJsonLayout.toSerializable(event);
         int lineCount = logString.split(System.lineSeparator()).length;
         assertThat(lineCount).isEqualTo(1);
-
     }
 
     @Test
@@ -76,24 +75,9 @@ public class AbstractCustomJsonLayoutTest {
         logsKeyAndStringValueForLayout(key, expectedValue, conciseJsonLayout);
     }
 
-    private void logsKeyAndLongValue(String key, long expectedValue) throws IOException {
-        logsKeyAndLongValueForLayout(key, expectedValue, prettyJsonLayout);
-        logsKeyAndLongValueForLayout(key, expectedValue, conciseJsonLayout);
-    }
-
     private void logsKeyAndStringValueForLayout(String key, String expectedValue, ConcreteCustomJsonLayoutForTesting jsonLayout) throws IOException {
         String jsonString = jsonLayout.toSerializable(event);
         verifyJsonContainsString(jsonString, key, expectedValue);
-    }
-
-    private void logsKeyAndLongValueForLayout(String key, long expectedValue, ConcreteCustomJsonLayoutForTesting layout) throws IOException {
-        String jsonString = layout.toSerializable(event);
-        verifyJsonContainsLong(jsonString, key, expectedValue);
-    }
-
-    private void verifyJsonContainsLong(String logString, String key, long expectedValue) throws IOException {
-        JsonNode keyNode = getKeyNode(logString, key);
-        assertThat(keyNode.asLong()).isEqualTo(expectedValue);
     }
 
     private void verifyJsonContainsString(String logString, String key, String expectedValue) throws IOException {

@@ -33,13 +33,11 @@ public class ToddCustomJsonLayoutTest {
         event = new MutableLogEvent();
     }
 
-    // TODO: keep
     @Test
     public void logsEnvironment() throws IOException {
         logsKeyAndStringValue("environment", TEST_ENVIRONMENT);
     }
 
-    // TODO: keep
     @Test
     public void logsEventFields() throws IOException {
         event.setLoggerName(LOGGER_NAME);
@@ -65,34 +63,28 @@ public class ToddCustomJsonLayoutTest {
 
         int expectedStackSize = 32;
         assertThat(keyNode.size()).isEqualTo(expectedStackSize);
-        assertThat(keyNode.elements().next().asText()).isEqualTo("ToddCustomJsonLayoutTest.java:todd.spike.ToddCustomJsonLayoutTest:logsStackTrace:67");
+        assertThat(keyNode.elements().next().asText()).isEqualTo("ToddCustomJsonLayoutTest.java:todd.spike.ToddCustomJsonLayoutTest:logsStackTrace:60");
     }
 
     // TODO: refactor move
     @Test
     public void logsException() throws IOException {
         event.setThrown(new Exception("Whoops"));
-        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 78");
+        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 72");
     }
 
     // TODO: refactor move
     @Test
     public void logsFirstCause() throws IOException {
         event.setThrown(new Exception("Whoops", new Exception("First Cause")));
-        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 84");
+        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 79");
     }
 
     // TODO: refactor move
     @Test
     public void logsSecondCause() throws IOException {
         event.setThrown(new Exception("Whoops", new Exception("First Cause", new Exception("Second Cause"))));
-        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 90");
-    }
-
-    @Test
-    public void conciseLogsEndInALineSeparator() {
-        String logEntry = conciseJsonLayout.toSerializable(event);
-        assertThat(logEntry).endsWith(System.lineSeparator());
+        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 86");
     }
 
     private void logsKeyAndStringValue(String key, String expectedValue) throws IOException {
