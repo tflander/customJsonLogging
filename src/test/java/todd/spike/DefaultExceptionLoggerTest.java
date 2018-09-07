@@ -3,7 +3,6 @@ package todd.spike;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.AbstractMap;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).containsExactly(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsException line 16"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsException line 15"
                 ));
     }
 
@@ -28,17 +27,17 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).contains(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 26"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 25"
                 ),
                 getEntry(
                         "exception.1.cause",
-                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 26"
+                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 25"
                 )
         );
     }
 
     @Test
-    public void logsSecondCause() throws IOException {
+    public void logsSecondCause() {
         Map<String, Object> exceptions = exceptionLogger.logException(
                 new Exception("whoops",
                         new Exception("First Cause",
@@ -47,15 +46,15 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).contains(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 42"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 ),
                 getEntry(
                         "exception.1.cause",
-                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 42"
+                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 ),
                 getEntry(
                         "exception.2.cause",
-                        "java.lang.Exception:Second Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 42"
+                        "java.lang.Exception:Second Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 )
         );
 

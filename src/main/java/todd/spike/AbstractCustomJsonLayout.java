@@ -11,6 +11,8 @@ import java.util.Map;
 public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
 
     private final boolean pretty;
+
+    @SuppressWarnings("CanBeFinal")
     private ObjectMapper objectMapper;
 
     public AbstractCustomJsonLayout(boolean pretty) {

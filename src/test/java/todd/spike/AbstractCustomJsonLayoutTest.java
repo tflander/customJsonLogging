@@ -2,9 +2,7 @@ package todd.spike;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.impl.MutableLogEvent;
-import org.apache.logging.log4j.message.SimpleMessage;
 import org.apache.logging.log4j.util.SortedArrayStringMap;
 import org.apache.logging.log4j.util.StringMap;
 import org.assertj.core.api.Assertions;
@@ -17,13 +15,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class AbstractCustomJsonLayoutTest {
 
-    private ConcreteCustomJsonLayoutForTesting prettyJsonLayout = new ConcreteCustomJsonLayoutForTesting(true);
-    private ConcreteCustomJsonLayoutForTesting conciseJsonLayout = new ConcreteCustomJsonLayoutForTesting(false);
+    private final ConcreteCustomJsonLayoutForTesting prettyJsonLayout = new ConcreteCustomJsonLayoutForTesting(true);
+    private final ConcreteCustomJsonLayoutForTesting conciseJsonLayout = new ConcreteCustomJsonLayoutForTesting(false);
 
     private MutableLogEvent event;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         event = new MutableLogEvent();
     }
 

@@ -7,6 +7,7 @@ import java.util.Map;
 
 class ConcreteCustomJsonLayoutForTesting extends AbstractCustomJsonLayout {
 
+    @SuppressWarnings("unused")
     public ConcreteCustomJsonLayoutForTesting() {
         super(false);
     }

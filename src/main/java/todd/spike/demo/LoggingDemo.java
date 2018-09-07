@@ -10,8 +10,8 @@ import java.lang.reflect.Field;
 
 public class LoggingDemo {
 
-    static Logger log = LoggerFactory.getLogger(LoggingDemo.class);
-    static RequestMetadata metadata = RequestMetadata.builder()
+    static final Logger log = LoggerFactory.getLogger(LoggingDemo.class);
+    static final RequestMetadata metadata = RequestMetadata.builder()
             .action("action")
             .applicationId("appId")
             .eventType("event")

@@ -27,7 +27,7 @@ public class AbstractCustomJsonLayoutExceptionTest {
     @Mock
     ObjectMapper objectMapper;
 
-    private MutableLogEvent event = new MutableLogEvent();
+    private final MutableLogEvent event = new MutableLogEvent();
 
     @Test
     public void reportsInvalidJsonRequest() throws JsonProcessingException {
