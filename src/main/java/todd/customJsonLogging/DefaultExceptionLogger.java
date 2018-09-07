@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.customJsonLogging;
 
 import java.util.HashMap;
 import java.util.Map;

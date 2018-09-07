@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.customJsonLogging;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;

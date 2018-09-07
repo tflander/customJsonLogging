@@ -1,10 +1,10 @@
-package todd.spike.demo;
+package todd.customJsonLogging.demo;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
-import todd.spike.sumoFakes.FakeService;
-import todd.spike.sumoFakes.RequestMetadata;
+import todd.customJsonLogging.sumoFakes.FakeService;
+import todd.customJsonLogging.sumoFakes.RequestMetadata;
 
 import java.lang.reflect.Field;
 

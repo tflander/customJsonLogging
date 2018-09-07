@@ -1,4 +1,4 @@
-package todd.spike.sumoFakes;
+package todd.customJsonLogging.sumoFakes;
 
 public class FakeService {
     public static void doIt() {

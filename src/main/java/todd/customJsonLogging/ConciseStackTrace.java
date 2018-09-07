@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.customJsonLogging;
 
 import java.util.ArrayList;
 import java.util.List;

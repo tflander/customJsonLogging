@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.customJsonLogging;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -16,7 +16,7 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).containsExactly(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsException line 15"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsException line 15"
                 ));
     }
 
@@ -27,11 +27,11 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).contains(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 25"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsFirstCause line 25"
                 ),
                 getEntry(
                         "exception.1.cause",
-                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsFirstCause line 25"
+                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsFirstCause line 25"
                 )
         );
     }
@@ -46,15 +46,15 @@ public class DefaultExceptionLoggerTest {
         Assertions.assertThat(exceptions).contains(
                 getEntry(
                         "exception.0.thrown",
-                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
+                        "java.lang.Exception:whoops DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 ),
                 getEntry(
                         "exception.1.cause",
-                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
+                        "java.lang.Exception:First Cause DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 ),
                 getEntry(
                         "exception.2.cause",
-                        "java.lang.Exception:Second Cause DefaultExceptionLoggerTest.java todd.spike.DefaultExceptionLoggerTest:logsSecondCause line 41"
+                        "java.lang.Exception:Second Cause DefaultExceptionLoggerTest.java todd.customJsonLogging.DefaultExceptionLoggerTest:logsSecondCause line 41"
                 )
         );
 

@@ -1,4 +1,4 @@
-package todd.spike.sumoFakes;
+package todd.customJsonLogging.sumoFakes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

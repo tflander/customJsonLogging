@@ -1,4 +1,4 @@
-package todd.spike;
+package todd.customJsonLogging;
 
 import org.apache.logging.log4j.core.LogEvent;
 
