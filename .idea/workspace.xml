@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="73947120-c00e-406e-8e7e-d920d59e80a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/todd/spike/DefaultExceptionLogger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/todd/spike/DefaultExceptionLoggerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -67,14 +66,14 @@
         <counts>
           <entry key="dummy" value="20" />
           <entry key="gradle" value="1" />
-          <entry key="java" value="3592" />
+          <entry key="java" value="3738" />
           <entry key="properties" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Groovy" value="1" />
-          <entry key="JAVA" value="3592" />
+          <entry key="JAVA" value="3738" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="Properties" value="5" />
         </counts>
@@ -83,20 +82,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="100" lean-forward="true" selection-start-line="81" selection-end-line="100" />
+            <state relative-caret-position="216">
+              <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/DefaultExceptionLoggerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+            <state relative-caret-position="187">
+              <caret line="11" column="40" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="74" lean-forward="true" selection-start-line="48" selection-end-line="74" />
+            <state relative-caret-position="78">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -496,11 +495,11 @@
         <option value="$PROJECT_DIR$/exception.log" />
         <option value="$PROJECT_DIR$/src/main/java/todd/spike/ConciseStackTrace.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/ConciseStackTraceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java" />
-        <option value="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/DefaultExceptionLogger.java" />
         <option value="$PROJECT_DIR$/src/main/java/todd/spike/DefaultExceptionLogger.java" />
         <option value="$PROJECT_DIR$/src/test/java/todd/spike/DefaultExceptionLoggerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java" />
+        <option value="$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java" />
       </list>
     </option>
   </component>
@@ -596,7 +595,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536344727343" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536345281266" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
@@ -673,23 +672,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DefaultExceptionLoggerTest.logsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="loggingSpike_test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="todd.spike.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="todd.spike" />
-      <option name="MAIN_CLASS_NAME" value="todd.spike.DefaultExceptionLoggerTest" />
-      <option name="METHOD_NAME" value="logsException" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DefaultExceptionLoggerTest.logsFirstCause" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="loggingSpike_test" />
       <extension name="coverage">
@@ -724,6 +706,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ToddCustomJsonLayoutTest.logsException" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="loggingSpike_test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="todd.spike.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="todd.spike" />
+      <option name="MAIN_CLASS_NAME" value="todd.spike.ToddCustomJsonLayoutTest" />
+      <option name="METHOD_NAME" value="logsException" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -748,19 +747,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsException" />
       <item itemvalue="JUnit.DefaultExceptionLoggerTest" />
       <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsFirstCause" />
       <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsSecondCause" />
       <item itemvalue="JUnit.All in loggingSpike_test" />
+      <item itemvalue="JUnit.ToddCustomJsonLayoutTest.logsException" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in loggingSpike_test" />
+        <item itemvalue="JUnit.ToddCustomJsonLayoutTest.logsException" />
         <item itemvalue="JUnit.DefaultExceptionLoggerTest" />
         <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsSecondCause" />
         <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsFirstCause" />
-        <item itemvalue="JUnit.DefaultExceptionLoggerTest.logsException" />
       </list>
     </recent_temporary>
   </component>
@@ -778,35 +777,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DefaultExceptionLoggerTest - 2018.09.07 at 14h 15m 20s.xml">
-      <configuration name="DefaultExceptionLoggerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 15m 48s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 16m 37s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 17m 06s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 17m 42s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 18m 33s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsFirstCause - 2018.09.07 at 14h 20m 58s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsFirstCause" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DefaultExceptionLoggerTest_logsSecondCause - 2018.09.07 at 14h 23m 46s.xml">
-      <configuration name="DefaultExceptionLoggerTest.logsSecondCause" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DefaultExceptionLoggerTest - 2018.09.07 at 14h 23m 59s.xml">
       <configuration name="DefaultExceptionLoggerTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DefaultExceptionLoggerTest - 2018.09.07 at 14h 24m 36s.xml">
       <configuration name="DefaultExceptionLoggerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DefaultExceptionLoggerTest - 2018.09.07 at 14h 25m 29s.xml">
+      <configuration name="DefaultExceptionLoggerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 14h 25m 41s.xml">
+      <configuration name="All in loggingSpike_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 14h 29m 35s.xml">
+      <configuration name="All in loggingSpike_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 14h 29m 59s.xml">
+      <configuration name="All in loggingSpike_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_loggingSpike_test - 2018.09.07 at 14h 30m 48s.xml">
+      <configuration name="All in loggingSpike_test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ToddCustomJsonLayoutTest_logsException - 2018.09.07 at 14h 33m 04s.xml">
+      <configuration name="ToddCustomJsonLayoutTest.logsException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ToddCustomJsonLayoutTest_logsException - 2018.09.07 at 14h 33m 37s.xml">
+      <configuration name="ToddCustomJsonLayoutTest.logsException" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ToddCustomJsonLayoutTest_logsException - 2018.09.07 at 14h 34m 13s.xml">
+      <configuration name="ToddCustomJsonLayoutTest.logsException" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -881,7 +880,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java</url>
-          <line>74</line>
+          <line>80</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -1071,23 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="100" lean-forward="true" selection-start-line="81" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="74" lean-forward="true" selection-start-line="48" selection-end-line="74" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/DefaultExceptionLogger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -1100,11 +1082,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/DefaultExceptionLoggerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/todd/spike/ToddCustomJsonLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/todd/spike/ToddCustomJsonLayoutTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="69" column="50" selection-start-line="69" selection-start-column="50" selection-end-line="69" selection-end-column="50" />
         </state>
       </provider>
     </entry>

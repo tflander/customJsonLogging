@@ -15,15 +15,13 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
 
     private final String environment;
     private ConciseStackTrace conciseStackTrace;
+    private DefaultExceptionLogger defaultExceptionLogger;
 
     public ToddCustomJsonLayout(String environment, boolean pretty) {
         super(pretty);
         this.environment = environment;
         conciseStackTrace = new ConciseStackTrace();
-    }
-
-    public void setConciseStackTraceForTesting(ConciseStackTrace conciseStackTrace) {
-        this.conciseStackTrace = conciseStackTrace;
+        defaultExceptionLogger = new DefaultExceptionLogger();
     }
 
     @Override
@@ -47,30 +45,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
 
     @Override
     protected Map<String, Object> logException(Throwable throwable) {
-        Map<String, Object> kvMap = new HashMap<>();
-        int level = 0;
-        String tag = "exception." + level + ".thrown";
-        while (throwable != null) {
-            StackTraceElement element = throwable.getStackTrace()[0];
-            String exception =
-                    throwable.getClass().getName() + ":"
-                            + throwable.getMessage() + " "
-                            + element.getFileName() + " "
-                            + element.getClassName() + ":"
-                            + element.getMethodName() + " line "
-                            + element.getLineNumber();
-
-            kvMap.put(tag, exception);
-            ++level;
-            tag = "exception." + level + ".cause";
-
-            if (throwable == throwable.getCause()) {
-                throwable = null;
-            } else {
-                throwable = throwable.getCause();
-            }
-        }
-        return kvMap;
+        return defaultExceptionLogger.logException(throwable);
     }
 
 
@@ -80,5 +55,13 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
             @PluginAttribute(value = "pretty", defaultBoolean = false) boolean pretty
     ) {
         return new ToddCustomJsonLayout(environment, pretty);
+    }
+
+    public void setConciseStackTraceForTesting(ConciseStackTrace conciseStackTrace) {
+        this.conciseStackTrace = conciseStackTrace;
+    }
+
+    public void setExceptionLoggerForTesting(DefaultExceptionLogger defaultExceptionLogger) {
+        this.defaultExceptionLogger = defaultExceptionLogger;
     }
 }

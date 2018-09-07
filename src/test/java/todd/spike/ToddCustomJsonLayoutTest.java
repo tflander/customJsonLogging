@@ -14,7 +14,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
@@ -36,11 +38,16 @@ public class ToddCustomJsonLayoutTest {
     @Mock
     private ConciseStackTrace conciseStackTrace;
 
+    @Mock
+    private DefaultExceptionLogger defaultExceptionLogger;
+
     @Before
     public void setUp() {
         event = new MutableLogEvent();
         prettyJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
+        prettyJsonLayout.setExceptionLoggerForTesting(defaultExceptionLogger);
         conciseJsonLayout.setConciseStackTraceForTesting(conciseStackTrace);
+        conciseJsonLayout.setExceptionLoggerForTesting(defaultExceptionLogger);
     }
 
     @Test
@@ -61,7 +68,6 @@ public class ToddCustomJsonLayoutTest {
         logsKeyAndLongValue("threadId", THREAD_ID);
         logsKeyAndStringValue("instance", THREAD_NAME);
         logsKeyAndStringValue("message", MESSAGE);
-
     }
 
     @Test
@@ -78,25 +84,14 @@ public class ToddCustomJsonLayoutTest {
         assertThat(keyNode.elements().next().asText()).isEqualTo(stackTrace.get(0));
     }
 
-    // TODO: refactor move
     @Test
     public void logsException() throws IOException {
-        event.setThrown(new Exception("Whoops"));
-        logsKeyAndStringValue("exception.0.thrown", "java.lang.Exception:Whoops ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsException line 84");
-    }
-
-    // TODO: refactor move
-    @Test
-    public void logsFirstCause() throws IOException {
-        event.setThrown(new Exception("Whoops", new Exception("First Cause")));
-        logsKeyAndStringValue("exception.1.cause", "java.lang.Exception:First Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsFirstCause line 91");
-    }
-
-    // TODO: refactor move
-    @Test
-    public void logsSecondCause() throws IOException {
-        event.setThrown(new Exception("Whoops", new Exception("First Cause", new Exception("Second Cause"))));
-        logsKeyAndStringValue("exception.2.cause", "java.lang.Exception:Second Cause ToddCustomJsonLayoutTest.java todd.spike.ToddCustomJsonLayoutTest:logsSecondCause line 98");
+        Exception exception = new Exception("Whoops");
+        event.setThrown(exception);
+        Map<String, Object> exceptions = new HashMap<>();
+        exceptions.put("exception key", "exception description");
+        when(defaultExceptionLogger.logException(exception)).thenReturn(exceptions);
+        logsKeyAndStringValue("exception key", "exception description");
     }
 
     private void logsKeyAndStringValue(String key, String expectedValue) throws IOException {
