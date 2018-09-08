@@ -8,6 +8,10 @@ import todd.customJsonLogging.AbstractCustomJsonLayout;
 import todd.customJsonLogging.ConciseStackTraceLogger;
 import todd.customJsonLogging.DefaultExceptionLogger;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,6 +38,9 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
         kvMap.put("message", event.getMessage().getFormattedMessage());
         kvMap.put("logger", event.getLoggerName());
         kvMap.put("environment", environment);
+
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(event.getTimeMillis()), ZoneId.systemDefault());
+        kvMap.put("timestamp", DateTimeFormatter.ISO_DATE_TIME.format(localDateTime));
         return kvMap;
     }
 

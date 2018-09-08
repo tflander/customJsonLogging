@@ -14,6 +14,9 @@ import todd.customJsonLogging.DefaultExceptionLogger;
 import todd.customJsonLogging.demo.LoggingDemo;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.Month;
+import java.time.ZoneOffset;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +62,7 @@ public class ToddCustomJsonLayoutTest {
 
     @Test
     public void logsEventFields() throws IOException {
+        event.setTimeMillis(LocalDateTime.of(2018, Month.DECEMBER, 25, 1, 2).toInstant(ZoneOffset.UTC).getEpochSecond()*1000);
         event.setLoggerName(LOGGER_NAME);
         event.setLevel(Level.FATAL);
         event.setThreadId(THREAD_ID);
@@ -70,6 +74,8 @@ public class ToddCustomJsonLayoutTest {
         logsKeyAndLongValue("threadId", THREAD_ID);
         logsKeyAndStringValue("instance", THREAD_NAME);
         logsKeyAndStringValue("message", MESSAGE);
+        String expectedTimestampEst = "2018-12-24T20:02:00";
+        logsKeyAndStringValue("timestamp", expectedTimestampEst);
     }
 
     @Test
