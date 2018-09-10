@@ -40,7 +40,7 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
         kvMap.put("environment", environment);
 
         LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.ofEpochMilli(event.getTimeMillis()), ZoneId.systemDefault());
-        kvMap.put("timestamp", DateTimeFormatter.ISO_DATE_TIME.format(localDateTime));
+        kvMap.put("logtimestamp", DateTimeFormatter.ISO_DATE_TIME.format(localDateTime));
         return kvMap;
     }
 
