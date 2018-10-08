@@ -75,7 +75,7 @@ public class ToddCustomJsonLayoutTest {
         logsKeyAndStringValue("instance", THREAD_NAME);
         logsKeyAndStringValue("message", MESSAGE);
         String expectedTimestampEst = "2018-12-24T20:02:00";
-        logsKeyAndStringValue("timestamp", expectedTimestampEst);
+        logsKeyAndStringValue("logtimestamp", expectedTimestampEst);
     }
 
     @Test
