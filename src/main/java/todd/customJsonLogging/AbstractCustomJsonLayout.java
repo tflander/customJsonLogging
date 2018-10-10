@@ -27,7 +27,6 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
         Map<String, Object> kvMap = mapLogEvent(event);
         Throwable throwable = event.getThrown();
         if (throwable != null) {
-            kvMap.putAll(logStackTrace(throwable));
             kvMap.putAll(logException(throwable));
         }
 
@@ -45,6 +44,5 @@ public abstract class AbstractCustomJsonLayout extends AbstractStringLayout {
 
     protected abstract Map<String, Object> mapLogEvent(LogEvent event);
     protected abstract Map<String, Object> logException(Throwable throwable);
-    protected abstract Map<String, Object> logStackTrace(Throwable throwable);
 
 }

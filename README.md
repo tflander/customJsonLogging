@@ -78,6 +78,3 @@ Allows you to log a stack trace.  The `ConciseStackTraceLogger` is probably fine
 #### logException
 Allows you to log the exception.  The `DefaultExceptionLogger` recurses through exception causes and adds log entries for each cause.  Again, you are free to plug in a different approach.
 
-## TODO
- - add log event timestamp
- - think about one method for logging exceptions, rather than two.

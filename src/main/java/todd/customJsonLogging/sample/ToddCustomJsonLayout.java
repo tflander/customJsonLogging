@@ -45,15 +45,11 @@ public class ToddCustomJsonLayout extends AbstractCustomJsonLayout {
     }
 
     @Override
-    protected Map<String, Object> logStackTrace(Throwable throwable) {
+    protected Map<String, Object> logException(Throwable throwable) {
         Map<String, Object> kvMap = new HashMap<>();
         kvMap.put("stackTrace", conciseStackTraceLogger.logStackTrace(throwable));
+        kvMap.putAll(defaultExceptionLogger.logException(throwable));
         return kvMap;
-    }
-
-    @Override
-    protected Map<String, Object> logException(Throwable throwable) {
-        return defaultExceptionLogger.logException(throwable);
     }
 
     @PluginFactory
