@@ -1,5 +1,14 @@
 # Demo for Creating a custom JSON layout for Log4J2 (driven by SLF4j)
 
+## Purpose
+To safely log events as JSON by giving the application total control over how data is logged.
+
+## Current Situation
+ - Log config in every enviroment has to be changed as application logging changes.
+ - Data loss if application and environment configuration are out-of-sync.
+ - Exception information is not tied to error events
+ - Exception information is not useful and takes a lot of space (expensive for Splunk)
+
 ## Features
  - MDC kv pairs are added as first-level JSON fields without the need for additional logging configuration
  - Exceptions and stack traces are logged with the JSON event, allowing log parsers to associate the stack trace with the event.
